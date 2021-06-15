@@ -4,6 +4,13 @@ import { CdkPipeline, SimpleSynthAction } from '@aws-cdk/pipelines';
 import * as codepipeline from '@aws-cdk/aws-codepipeline';
 import * as codepipeline_actions from '@aws-cdk/aws-codepipeline-actions';
 
+export class MyApplication extends cdk.Stage {
+  constructor(scope: cdk.Construct, id: string, props?: cdk.StageProps) {
+    super(scope, id, props);
+
+  }
+}
+
 export class MyPipelineStack extends cdk.Stack {
   constructor(scope: cdk.Construct, id: string, props?: cdk.StackProps) {
     super(scope, id, props);
@@ -34,6 +41,20 @@ export class MyPipelineStack extends cdk.Stack {
         buildCommand: 'npm run build',
       }),
     });
+
+    // pipeline.addApplicationStage(new MyApplication(this, 'Prod', {
+    //   env: {
+    //     account: '105727904871',
+    //     region: 'us-east-1',
+    //   }
+    // }));
+
+    // pipeline.addApplicationStage(new MyApplication(this, 'Dev', {
+    //   env: {
+    //     account: '105727904871',
+    //     region: 'us-east-1',
+    //   }
+    // }));
   }
 }
 
