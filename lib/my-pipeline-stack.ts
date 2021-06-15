@@ -37,7 +37,7 @@ export class MyPipelineStack extends cdk.Stack {
       sourceAction: new codepipeline_actions.GitHubSourceAction({
         actionName: 'GitHub',
         output: sourceArtifact,
-        oauthToken: cdk.SecretValue.secretsManager('GITHUB_TOKEN_NAME'),
+        oauthToken: cdk.SecretValue.secretsManager('GITHUB_TOKEN'),
         trigger: codepipeline_actions.GitHubTrigger.POLL,
         // Replace these with your actual GitHub project info
         owner: 'SeyiKayode',
