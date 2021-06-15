@@ -4,10 +4,22 @@ import { CdkPipeline, SimpleSynthAction } from '@aws-cdk/pipelines';
 import * as codepipeline from '@aws-cdk/aws-codepipeline';
 import * as codepipeline_actions from '@aws-cdk/aws-codepipeline-actions';
 
+export class DatabaseStack extends cdk.Stack {
+  // ...
+}
+
+export class ComputeStack extends cdk.Stack {
+  // ...
+}
+
 export class MyApplication extends cdk.Stage {
   constructor(scope: cdk.Construct, id: string, props?: cdk.StageProps) {
     super(scope, id, props);
-
+    
+    const dbStack = new DatabaseStack(this, 'Database');
+    new ComputeStack(this, 'Compute', {
+      // table: dbStack.table,
+    });
   }
 }
 
