@@ -42,19 +42,19 @@ export class MyPipelineStack extends cdk.Stack {
       }),
     });
 
-    // pipeline.addApplicationStage(new MyApplication(this, 'Prod', {
-    //   env: {
-    //     account: '105727904871',
-    //     region: 'us-east-1',
-    //   }
-    // }));
+    pipeline.addApplicationStage(new MyApplication(this, 'Prod', {
+      env: {
+        account: '105727904871',
+        region: 'us-east-1',
+      }
+    }));
 
-    // pipeline.addApplicationStage(new MyApplication(this, 'Dev', {
-    //   env: {
-    //     account: '105727904871',
-    //     region: 'us-east-1',
-    //   }
-    // }));
+    pipeline.addApplicationStage(new MyApplication(this, 'Dev', {
+      env: {
+        account: '105727904871',
+        region: 'us-east-1',
+      }
+    }));
   }
 }
 
